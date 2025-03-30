@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="container">
+  <div class="card my-4" style="padding:20px;">
+    <div class="">
+      <h3>{{ blog.title }}</h3>
+    </div><hr>
+    <div class="">
+        <p>{{ blog.text|safe }}</p>
+    </div>
+    <div class="">
+        <a href="{% url 'blog:details' blog.slug %}" class="btn btn-secondary">Save to draft</a>
+        <a href="{% url 'blog:confirm-publish' blog.slug %}">Confirm Publish</a>
+    </div>
+  </div>
+  </div>
+{% endblock %}

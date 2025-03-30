@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="container">
+  <div class="card my-4" style="padding:20px;">
+    <div class="">
+      <h3>{{ blog.title }}</h3>
+    </div><hr>
+    <div class="">
+        <p>{{ blog.text|safe }}</p>
+    </div>
+  </div>
+  </div>
+{% endblock %}

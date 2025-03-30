@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div class="container">
+  <div class="card my-4" style="padding:20px;">
+    <div class="" style="text-align:center;">
+      {% if type == 1 %}
+        <h3>Your Blog List</h3>
+      {% elif type == 2 %}
+        <h3>Your Published Blog List</h3>
+      {% elif type == 3 %}
+        <h3>Your Draft Blog List</h3>
+      {% endif %}
+    </div><hr>
+    {% for blog in blogs %}
+    <div class=""  {% if forloop.counter0|divisibleby:2 %}style="background-color:cyan;"{% endif %}>
+    <div class="row row-content align-item-center">
+        <div class="col-12 col-sm-4 {% if forloop.counter|divisibleby:2 %}order-sm-last{% endif %} col-md-3">
+            <h3>{{ blog.title }}</h3>
+        </div>
+        <div class="col col-sm {% if forloop.counter|divisibleby:2 %}order-sm-first{% endif %} col-md">
+            <div class="media">
+                <div class="media-body">
+                    <p class="d-none d-sm-block">{{ blog.text|safe }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <a href="{% url 'blog:update' blog.slug %}" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'blog:details' blog.slug %}" class="btn btn-primary">View</a>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+{% endblock %}
