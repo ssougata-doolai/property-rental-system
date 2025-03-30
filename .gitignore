@@ -174,5 +174,4 @@ cython_debug/
 .pypirc
 
 #json
-My Project-53f013ed303f.json
-Project-1b281b28e27b.json 
+*.json
