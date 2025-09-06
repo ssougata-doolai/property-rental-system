@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+
+# Django migrations (optional, see note below)
+**/migrations/*.py
+!**/migrations/__init__.py
+
 # Distribution / packaging
 .Python
 build/
@@ -135,6 +147,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv_django_3/
+venv2/
 
 # Spyder project settings
 .spyderproject
@@ -174,3 +188,4 @@ cython_debug/
 .pypirc
 
 *.json
+mess_management6.code-workspace

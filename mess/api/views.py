@@ -15,7 +15,7 @@ from django.db.models import Q
 from django.contrib.gis.measure import D
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
-from django.contrib.gis.geoip2 import GeoIP2
+# from django.contrib.gis.geoip2 import GeoIP2
 from django.utils import timezone
 from mess.models import (
     Mess,

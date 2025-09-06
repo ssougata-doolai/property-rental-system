@@ -11,20 +11,28 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import environ
 from datetime import timedelta
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+# Initialise environment variables
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+# Read .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l+v@f_7wm0u84*$19h15xbcb8x*f3bisndkam--hsyiqd3$m^t'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ]
 
@@ -47,14 +55,14 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'phonenumber_field',
     'django.contrib.gis',
-    # 'defender',
-    # 'axes',
-    # 'dbbackup',
-    # 'gdstorage',
-    # 'crispy_forms',
-    # 'django_summernote',
-    # 'corsheaders',
-    # 'hotel.apps.HotelConfig',
+    'defender',
+    'axes',
+    'dbbackup',
+    'gdstorage',
+    'crispy_forms',
+    'django_summernote',
+    'corsheaders',
+    'hotel.apps.HotelConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -93,8 +101,10 @@ TEMPLATES = [
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        # 'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
         'LOCATION': '127.0.0.1:11211',
+        # "LOCATION": "unique-snowflake",
     }
 }
 
@@ -111,11 +121,11 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mess_management6',
-        'USER': 'postgres',
-        'PASSWORD': 'sougata1',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT')
     }
 }
 
@@ -161,7 +171,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'axes.backends.AxesBackend',
         # 'accounts.api.v2.authentication_class.BasicAuthenticationDefender',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
@@ -212,17 +222,20 @@ AXES_CACHE = 'axes'
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, 'backup')}
 
-# DEFAULT_FROM_EMAIL = 'sanudoloi1999@gmail.com'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'sanudoloi1999@gmail.com'
-# EMAIL_HOST_PASSWORD = 'nxlbbgxqqkopqrpj'
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # DEFENDER_USERNAME_FORM_FIELD = 'phone_number'
 # DEFENDER_LOCKOUT_URL = '/'
 
-GDAL_LIBRARY_PATH = r'C:\Users\WIN8\Envs\my_django\Lib\site-packages\osgeo\gdal300.dll'
+GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, 'venv', 'Lib', 'site-packages', 'osgeo', 'gdal.dll')
+GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, 'venv', 'Lib', 'site-packages', 'osgeo', 'geos_c.dll')
+
+# GDAL_LIBRARY_PATH = r'C:\Users\WIN8\Envs\my_django\Lib\site-packages\osgeo\gdal300.dll'
 # GEOIP_PATH = r'C:\Users\WIN8\Envs\my_django\Lib\site-packages\geoip2'
 
 # GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'Project-1b281b28e27b .json')
