@@ -7,11 +7,13 @@ A **Django 4.2.11** project to manage mess/meal operations with user auth, role 
 ## Features
 
 - User authentication (sessions + JWT)
-- Role-based access control
+- Role-based access (owner / tenant / admin)
+- Property listing with images (create / read / update / delete)
+- Booking/reservation flow
 - REST API (Django REST Framework)
 - WYSIWYG editor (django-summernote)
 - Backup & restore (django-dbbackup)
-- Google Drive storage integration
+- Google Drive storage integration for Media file handling for property images
 - Postgres + PostGIS support
 - Optional Redis/Memcached caching
 - Secure secrets via `.env` (django-environ)
@@ -21,6 +23,8 @@ A **Django 4.2.11** project to manage mess/meal operations with user auth, role 
 ## Requirements
 
 - **Python:** 3.12 (or any 3.8–3.12 compatible with Django 4.2)
+- **Django 4.x**
+- **Django REST Framework**
 - **PostgreSQL:** 13+ (with **PostGIS** installed)
 - **GDAL:** Installed and importable (Windows users typically install a wheel that matches Python & CPU)
 - **pip & virtualenv/venv**
@@ -180,18 +184,28 @@ Visit: http://127.0.0.1:8000/
 
 ## Project Structure (simplified)
 
-    mess_management6/
-    ├─ accounts/                 # authentication / users
-    ├─ mess/                     # core app (meals, plans, etc.)
-    ├─ mess_management6/
-    │  ├─ settings.py
-    │  ├─ urls.py
-    │  └─ wsgi.py / asgi.py
-    ├─ static/                   # static files (if collected locally)
-    ├─ media/                    # uploaded files
-    ├─ requirements.txt
-    ├─ .env
-    └─ manage.py
+    📁 property-rental-system/
+    ├── 📁 accounts/                            # authentication / users
+    ├── 📁 blog/
+    ├── 📁 crud/
+    ├── 📁 help/
+    ├── 📁 hotel/
+    ├── 📁 house/
+    ├── 📁 media/                               # uploaded files
+    ├── 📁 mess/
+    ├── 📁 mess_management6/
+    ├── 📁 static/                              # static files (if collected locally)
+    ├── 📁 templates/
+    ├── 📄 .gitignore
+    ├── 🔢 CountryCodes.json
+    ├── 📄 GDAL-3.6.2-cp310-cp310-win_amd64.whl
+    ├── 📄 LICENSE
+    ├── 📄 manage.py
+    ├── 📄 README.md
+    ├── 📄 requirements.txt
+    ├── 📄 requirements_old1.txt
+    ├── 📄 requirements_old2.txt
+    └── 📄 requirment.txt
 
 ---
 

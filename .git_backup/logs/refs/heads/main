@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 1291d2db58e08e8ada14b9af9441d38bdb20d000 Sougata <sougatadoloi1999@gmail.com> 1743352706 +0530	commit (initial): First commit
+1291d2db58e08e8ada14b9af9441d38bdb20d000 e6a45f68f3a3aea8a2f6229907304cf3e8a440c3 Sougata <sougatadoloi1999@gmail.com> 1743352722 +0530	pull origin main --rebase (finish): refs/heads/master onto edbc81a9d02a8d798e546c351829d6799a73e1f5
+e6a45f68f3a3aea8a2f6229907304cf3e8a440c3 e6a45f68f3a3aea8a2f6229907304cf3e8a440c3 Sougata <sougatadoloi1999@gmail.com> 1743352764 +0530	Branch: renamed refs/heads/master to refs/heads/main
+e6a45f68f3a3aea8a2f6229907304cf3e8a440c3 9630fd7cab5c3b5cbee0fbd9280073d200eb65e9 Sougata <sougatadoloi1999@gmail.com> 1743353139 +0530	commit: change in ,ignore
+9630fd7cab5c3b5cbee0fbd9280073d200eb65e9 0db6779172f668c0ded2b8a3c89db7d38915692e Sougata <sougatadoloi1999@gmail.com> 1743353545 +0530	commit: Removed sensitive files and added them to .gitignore
+0db6779172f668c0ded2b8a3c89db7d38915692e df6de8c70047770bfc7eb642b8c91a25e8897af3 Sougata <sougatadoloi1999@gmail.com> 1743353816 +0530	commit: Remove Credentials
+df6de8c70047770bfc7eb642b8c91a25e8897af3 21be6e253bae97992cfd8ffcb3643cdf89514a91 Sougata <sougatadoloi1999@gmail.com> 1743354296 +0530	commit: commited
+21be6e253bae97992cfd8ffcb3643cdf89514a91 21be6e253bae97992cfd8ffcb3643cdf89514a91 Sougata <sougatadoloi1999@gmail.com> 1743437474 +0530	Branch: renamed refs/heads/main to refs/heads/main
+21be6e253bae97992cfd8ffcb3643cdf89514a91 5678dfaf9a1b3408f50901e2a0a52461c7cbfce4 Sougata <sougatadoloi1999@gmail.com> 1743437780 +0530	rebase (finish): refs/heads/main onto bc150d36ad59db314767a1db332ea9aade981e4a
+5678dfaf9a1b3408f50901e2a0a52461c7cbfce4 87abdf6906a0c394c45f832d1097a91ea2fc3e5c Sougata <sougatadoloi1999@gmail.com> 1757159242 +0530	commit: Initial commit: Mess Management System
+87abdf6906a0c394c45f832d1097a91ea2fc3e5c 87abdf6906a0c394c45f832d1097a91ea2fc3e5c Sougata <sougatadoloi1999@gmail.com> 1757159382 +0530	Branch: renamed refs/heads/main to refs/heads/main
