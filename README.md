@@ -202,10 +202,7 @@ Visit: http://127.0.0.1:8000/
     ├── 📄 LICENSE
     ├── 📄 manage.py
     ├── 📄 README.md
-    ├── 📄 requirements.txt
-    ├── 📄 requirements_old1.txt
-    ├── 📄 requirements_old2.txt
-    └── 📄 requirment.txt
+    └── 📄 requirements.txt
 
 ---
 
